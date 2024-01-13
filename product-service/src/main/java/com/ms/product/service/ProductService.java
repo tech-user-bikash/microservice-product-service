@@ -1,8 +1,8 @@
 package com.ms.product.service;
-import com.ms.product.dto.ProductRequest;
-import com.ms.product.dto.ProductResponse;
 import com.ms.product.model.Product;
 import com.ms.product.repository.ProductRepository;
+import com.ms.product.dto.ProductRequest;
+import com.ms.product.dto.ProductResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    public void createProduct(ProductRequest productRequest) {
+    public String createProduct(ProductRequest productRequest) {
         Product product = Product.builder()
                 .name(productRequest.getName())
                 .description(productRequest.getDescription())
@@ -25,6 +25,7 @@ public class ProductService {
 
         productRepository.save(product);
         log.info("Product {} is saved", product.getId());
+        return "Product "+product.getId()+" saved successfully.";
     }
 
     public List<ProductResponse> getAllProducts() {
