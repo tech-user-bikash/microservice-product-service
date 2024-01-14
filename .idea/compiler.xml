@@ -6,6 +6,8 @@
       <directory url="file://$PROJECT_DIR$/product-service/order-service/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/order-service/src/main/resources/archetype-resources" includeSubdirectories="true" />
       <directory url="file://$PROJECT_DIR$/inventory-service/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/discovery-server/src/main/resources/archetype-resources" includeSubdirectories="true" />
+      <directory url="file://$PROJECT_DIR$/api-gateway/src/main/resources/archetype-resources" includeSubdirectories="true" />
     </excludeFromCompile>
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
@@ -13,9 +15,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
         <module name="product-service" />
         <module name="order-service" />
         <module name="inventory-service" />
+        <module name="discovery-server" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -25,6 +29,8 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="api-gateway" options="-parameters" />
+      <module name="discovery-server" options="-parameters" />
       <module name="inventory-service" options="-parameters" />
       <module name="microservice-product-service" options="" />
       <module name="microservices-product-service" options="-parameters" />
